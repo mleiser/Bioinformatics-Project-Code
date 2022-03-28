@@ -3,7 +3,7 @@ k = 9
 L = 24
 t = 4
 
-def freqTable(genome, k):
+def FreqTable(genome, k):
     freqMap = {}
 
     #Creates the frequency map based on the k-mer size given
@@ -17,14 +17,14 @@ def freqTable(genome, k):
     return freqMap
 
 #function to find specified clumps
-def findClumps(genome, k, L, t):
+def FindClumps(genome, k, L, t):
     Patterns = []
     n = len(genome)
 
     #Creates windows of the genome code
     for i in range(0, n - L):
         window = genome[i:i + L]
-        freqMap = freqTable(window, k)
+        freqMap = FreqTable(window, k)
 
         #Analyzes the windows for specified k-mer clumps
         for j in freqMap:
@@ -33,5 +33,5 @@ def findClumps(genome, k, L, t):
                     Patterns.append(j)
     return Patterns
 
-Patterns = findClumps(genome, k, L, t)
+Patterns = FindClumps(genome, k, L, t)
 print(Patterns)
