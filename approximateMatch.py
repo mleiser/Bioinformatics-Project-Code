@@ -3,7 +3,7 @@ text = "AGATCTTATTTCCAGTCGTCCATACTAGGAGACTCAGTGCGGGTAGAAATTCTGTCACGGTAGGACCAAGCC
 atMost = 5
 
 #finds matching snippets allowing the specified amount of mismatches
-def approximateMatch(text, pattern, atMost):
+def ApproximateMatch(text, pattern, atMost):
     matchingPatterns = []
     for i in range(0, len(text) - len(pattern) + 1):
         count = 0
@@ -18,5 +18,5 @@ def approximateMatch(text, pattern, atMost):
         if count <= atMost:
             matchingPatterns.append(i)
     return matchingPatterns
-output = approximateMatch(text, pattern, atMost)
+output = ApproximateMatch(text, pattern, atMost)
 print(' '.join(map(str, output)))
