@@ -42,15 +42,21 @@ def HammingDistance(input1, input2):
             count = count + 1
     return count
 
+#Finds the most common kmer patterns of mismatch limit d
 def MotifEnumeration(Dna, k, d):
     kmers = [set() for _ in Dna]
+    
+    #Finds all possible kmer patterns
     for pos, pattern in enumerate(Dna):
         for i in range(len(pattern) - k + 1):
             neighborhood = Neighbors(pattern[i: i + k], d)
             kmers[pos].update(neighborhood)
     patterns = kmers[0]
+    #Combines the sets and patterns into 1 list
     for sets in kmers:
         patterns = patterns & sets
+    
+    #Returns the most frequent patterns
     return patterns
 
 output = MotifEnumeration(Dna, k, d)
